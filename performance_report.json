@@ -1,0 +1,51 @@
+{
+  "model": "MobileNetV2",
+  "task": "CIFAR-10 Classification (10 classes)",
+  "dataset": {
+    "train_samples": 5000,
+    "test_samples": 1000,
+    "input_shape": [
+      224,
+      224,
+      3
+    ],
+    "preprocessing": "Normalized to [-1, 1]"
+  },
+  "baseline_float32": {
+    "accuracy": 0.7919999957084656,
+    "accuracy_percent": "79.20%",
+    "loss": 0.7569403648376465,
+    "model_size_mb": 20.981252670288086,
+    "format": "Keras (.keras)"
+  },
+  "quantized_int8": {
+    "accuracy": 0.733,
+    "accuracy_percent": "73.30%",
+    "model_size_mb": 2.590606689453125,
+    "format": "TFLite (.tflite)",
+    "quantization_method": "Full Integer Quantization",
+    "calibration_samples": 100
+  },
+  "comparison": {
+    "accuracy_difference": 0.05899999570846559,
+    "accuracy_difference_percent": "5.90%",
+    "size_reduction_factor": "8.10x",
+    "size_saved_mb": 18.39064598083496,
+    "size_saved_percent": "87.7%",
+    "meets_accuracy_criteria": false,
+    "meets_size_criteria": true
+  },
+  "quantization_details": {
+    "input_type": "INT8",
+    "output_type": "INT8",
+    "operations": "TFLITE_BUILTINS_INT8",
+    "input_quantization": {
+      "scale": 0.007843137718737125,
+      "zero_point": -1
+    },
+    "output_quantization": {
+      "scale": 0.00390625,
+      "zero_point": -128
+    }
+  }
+}

@@ -1,0 +1,53 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+
+# Data files
+data/*.npy
+data/*.npz
+data/*.pkl
+data/*.pickle
+data/*.csv
+data/*.h5
+
+# Model checkpoints and intermediate files
+model/checkpoints/
+model/*.ckpt
+model/*.pb
+model/*.pth
+*.h5
+*.keras
+*.tflite
+*.onnx
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Training artifacts
+*.png
+*.jpg
+*.jpeg
+logs/
+tensorboard/

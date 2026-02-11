@@ -1,0 +1,28 @@
+{
+  "model": "MobileNetV2 with Data Augmentation",
+  "task": "CIFAR-10 Classification",
+  "training": {
+    "epochs": 8,
+    "data_augmentation": "RandomFlip, RandomRotation, RandomZoom",
+    "optimizer": "Adam (lr=5e-5)",
+    "dropout": 0.2,
+    "calibration_samples": 200
+  },
+  "baseline_float32": {
+    "accuracy": 0.8100000023841858,
+    "accuracy_percent": "81.00%",
+    "model_size_mb": 23.51595973968506
+  },
+  "quantized_int8": {
+    "accuracy": 0.772,
+    "accuracy_percent": "77.20%",
+    "model_size_mb": 2.591064453125
+  },
+  "comparison": {
+    "accuracy_difference": 0.03800000238418577,
+    "accuracy_difference_percent": "3.80%",
+    "size_reduction_factor": "9.08x",
+    "meets_accuracy_criteria": false,
+    "meets_size_criteria": true
+  }
+}
