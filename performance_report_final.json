@@ -1,28 +1,51 @@
 {
-  "model": "MobileNetV2 with Data Augmentation",
-  "task": "CIFAR-10 Classification",
-  "training": {
-    "epochs": 8,
-    "data_augmentation": "RandomFlip, RandomRotation, RandomZoom",
-    "optimizer": "Adam (lr=5e-5)",
-    "dropout": 0.2,
-    "calibration_samples": 200
+  "model": "MobileNetV2",
+  "task": "CIFAR-10 Classification (10 classes)",
+  "dataset": {
+    "train_samples": 5000,
+    "test_samples": 1000,
+    "input_shape": [
+      224,
+      224,
+      3
+    ],
+    "preprocessing": "Normalized to [-1, 1]"
   },
   "baseline_float32": {
     "accuracy": 0.8100000023841858,
     "accuracy_percent": "81.00%",
-    "model_size_mb": 23.51595973968506
+    "loss": 0.5826014876365662,
+    "model_size_mb": 23.51595973968506,
+    "format": "Keras (.keras)"
   },
   "quantized_int8": {
     "accuracy": 0.772,
     "accuracy_percent": "77.20%",
-    "model_size_mb": 2.591064453125
+    "model_size_mb": 2.591064453125,
+    "format": "TFLite (.tflite)",
+    "quantization_method": "Full Integer Quantization",
+    "calibration_samples": 100
   },
   "comparison": {
     "accuracy_difference": 0.03800000238418577,
     "accuracy_difference_percent": "3.80%",
     "size_reduction_factor": "9.08x",
+    "size_saved_mb": 20.92489528656006,
+    "size_saved_percent": "89.0%",
     "meets_accuracy_criteria": false,
     "meets_size_criteria": true
+  },
+  "quantization_details": {
+    "input_type": "INT8",
+    "output_type": "INT8",
+    "operations": "TFLITE_BUILTINS_INT8",
+    "input_quantization": {
+      "scale": 0.007843137718737125,
+      "zero_point": -1
+    },
+    "output_quantization": {
+      "scale": 0.00390625,
+      "zero_point": -128
+    }
   }
 }

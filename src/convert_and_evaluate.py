@@ -23,7 +23,7 @@ y_test = np.load(data_dir / 'y_test.npy')
 print(f"Train data shape: {x_train.shape}")
 print(f"Test data shape: {x_test.shape}")
 
-baseline_model_path = model_dir / 'mobilenet_float32.keras'
+baseline_model_path = model_dir / 'mobilenet_augmented.keras'
 print(f"\nLoading baseline model from {baseline_model_path}...")
 model_float32 = tf.keras.models.load_model(baseline_model_path)
 
@@ -47,7 +47,7 @@ print("STEP 2: Convert to TFLite with Full Integer Quantization")
 print("=" * 70)
 
 def representative_dataset_gen():
-    num_calibration_samples = 100
+    num_calibration_samples = 200
     for i in range(num_calibration_samples):
         sample = x_train[i:i+1].astype(np.float32)
         yield [sample]
@@ -71,7 +71,7 @@ print("  - Input/Output: INT8")
 
 tflite_quant_model = converter.convert()
 
-tflite_model_path = model_dir / 'mobilenet_quantized_int8.tflite'
+tflite_model_path = model_dir / 'mobilenet_quantized_final.tflite'
 with open(tflite_model_path, 'wb') as f:
     f.write(tflite_quant_model)
 

@@ -12,26 +12,26 @@
     "preprocessing": "Normalized to [-1, 1]"
   },
   "baseline_float32": {
-    "accuracy": 0.7919999957084656,
-    "accuracy_percent": "79.20%",
-    "loss": 0.7569403648376465,
-    "model_size_mb": 20.981252670288086,
+    "accuracy": 0.8100000023841858,
+    "accuracy_percent": "81.00%",
+    "loss": 0.5826014876365662,
+    "model_size_mb": 23.51595973968506,
     "format": "Keras (.keras)"
   },
   "quantized_int8": {
-    "accuracy": 0.733,
-    "accuracy_percent": "73.30%",
-    "model_size_mb": 2.590606689453125,
+    "accuracy": 0.772,
+    "accuracy_percent": "77.20%",
+    "model_size_mb": 2.591064453125,
     "format": "TFLite (.tflite)",
     "quantization_method": "Full Integer Quantization",
     "calibration_samples": 100
   },
   "comparison": {
-    "accuracy_difference": 0.05899999570846559,
-    "accuracy_difference_percent": "5.90%",
-    "size_reduction_factor": "8.10x",
-    "size_saved_mb": 18.39064598083496,
-    "size_saved_percent": "87.7%",
+    "accuracy_difference": 0.03800000238418577,
+    "accuracy_difference_percent": "3.80%",
+    "size_reduction_factor": "9.08x",
+    "size_saved_mb": 20.92489528656006,
+    "size_saved_percent": "89.0%",
     "meets_accuracy_criteria": false,
     "meets_size_criteria": true
   },
